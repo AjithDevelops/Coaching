@@ -210,7 +210,7 @@ padding: 30px 20px;
   color: #1a1a1a;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 800px) {
 
 /* Styles for mobile devices */
 
@@ -272,35 +272,37 @@ line-height: 1.3;
     </style>
 	<script>
 	  function updateDataFile(event) {
-    event.preventDefault(); // prevent the form from submitting
+	  
+	  alert("There is currently a technical issue with the submission process. Please email your message directly to ajithkumar1109@gmail.com. We apologize for the inconvenience.");
+    <!-- event.preventDefault(); // prevent the form from submitting -->
 
-    // get the form data
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const exp = document.getElementById('exp').value;
-    const languages = document.querySelectorAll('input[name="languages[]"]:checked');
-    const message = document.getElementById('message').value;
+    <!-- // get the form data -->
+    <!-- const name = document.getElementById('name').value; -->
+    <!-- const email = document.getElementById('email').value; -->
+    <!-- const phone = document.getElementById('phone').value; -->
+    <!-- const exp = document.getElementById('exp').value; -->
+    <!-- const languages = document.querySelectorAll('input[name="languages[]"]:checked'); -->
+    <!-- const message = document.getElementById('message').value; -->
 
-    // format the data as a string
-    let data = `Name: ${name}\nEmail: ${email}\nPhone Number: ${phone}\nProfessional Experience: ${exp}\nLanguages To Learn: `;
-    languages.forEach(language => {
-      data += `${language.value}, `;
-    });
-    data = data.slice(0, -2); // remove the extra comma and space at the end
-    data += `\nMessage: ${message}\n\n`;
+    <!-- // format the data as a string -->
+    <!-- let data = `Name: ${name}\nEmail: ${email}\nPhone Number: ${phone}\nProfessional Experience: ${exp}\nLanguages To Learn: `; -->
+    <!-- languages.forEach(language => { -->
+      <!-- data += `${language.value}, `; -->
+    <!-- }); -->
+    <!-- data = data.slice(0, -2); // remove the extra comma and space at the end -->
+    <!-- data += `\nMessage: ${message}\n\n`; -->
 
-    // open the 'data.txt' file and append the data to it
-    const file = new File([''], 'data.txt');
-    const fileUrl = URL.createObjectURL(file);
-    const a = document.createElement('a');
-    a.href = fileUrl;
-    a.download = 'data.txt';
-    document.body.appendChild(a);
-    a.click();
-    const blob = new Blob([data], {type: 'text/plain'});
-    const fileWriter = new FileWriter();
-    fileWriter.write(blob);
+    <!-- // open the 'data.txt' file and append the data to it -->
+    <!-- const file = new File([''], 'data.txt'); -->
+    <!-- const fileUrl = URL.createObjectURL(file); -->
+    <!-- const a = document.createElement('a'); -->
+    <!-- a.href = fileUrl; -->
+    <!-- a.download = 'data.txt'; -->
+    <!-- document.body.appendChild(a); -->
+    <!-- a.click(); -->
+    <!-- const blob = new Blob([data], {type: 'text/plain'}); -->
+    <!-- const fileWriter = new FileWriter(); -->
+    <!-- fileWriter.write(blob); -->
   }
 	</script>
   
@@ -410,7 +412,7 @@ line-height: 1.3;
     <label for="message">Message</label>
     <textarea id="message" name="message"></textarea>
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" onclick="updateDataFile()">
   </form>
 
 </section>
@@ -428,4 +430,3 @@ line-height: 1.3;
 <footer>
   <p>&copy; 2023 Ajith Kumar's Front-End Development Coaching Class. All rights reserved.</p>
 </footer>
-
